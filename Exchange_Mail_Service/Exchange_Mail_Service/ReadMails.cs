@@ -26,7 +26,7 @@ namespace Exchange_Mail_Service
                 exchange.Url = new Uri("https://mail.uhc.com/EWS/Exchange.asmx");
                 exchange.TraceEnabled = true;
                 exchange.TraceFlags = TraceFlags.All;
-                // exchange.AutodiscoverUrl("myemail@company.com", RedirectionCallback); 
+                exchange.AutodiscoverUrl("myemail@company.com", RedirectionCallback); 
                 SearchFilter.IsGreaterThanOrEqualTo filter = new SearchFilter.IsGreaterThanOrEqualTo(ItemSchema.DateTimeReceived, date);
                 Service1.Log("calling service");
                 FindItemsResults<Item> findResults = exchange.FindItems(WellKnownFolderName.Inbox, filter, new ItemView(50));
